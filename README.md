@@ -1,6 +1,6 @@
 # NovaTech Studio - Landing Page
 
-Landing page construida con Astro para NovaTech Studio.
+Landing page de demostración construida con Astro.
 
 ## Estructura del Proyecto
 
