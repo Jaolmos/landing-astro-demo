@@ -2,6 +2,14 @@
 
 Landing page de demostración construida con Astro.
 
+## Características
+
+- **SEO optimizado**: Meta tags (Open Graph, Twitter Cards), canonical URL, robots.txt, sitemap.xml
+- **Structured data**: JSON-LD para Organization, WebSite y FAQPage
+- **Componentes modulares**: Secciones independientes (Hero, Servicios, FAQ, etc.)
+- **Responsive**: Diseño adaptable a todos los dispositivos
+- **Animaciones**: Scroll reveal con IntersectionObserver
+
 ## Estructura del Proyecto
 
 ```text
