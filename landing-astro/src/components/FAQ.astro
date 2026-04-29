@@ -35,7 +35,23 @@ const faqs = [
     answer: 'Sí, podemos integrar soluciones de IA en sistemas existentes mediante APIs y microservicios. Realizamos una auditoría técnica para determinar la mejor estrategia de integración.'
   }
 ];
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
 ---
+
+<!-- Structured Data: FAQ -->
+<script type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />
 
 <section class="section faq" id="faq">
   <div class="container">
