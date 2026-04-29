@@ -1,0 +1,135 @@
+---
+import SectionTitle from './ui/SectionTitle.astro';
+
+const testimonials = [
+  {
+    name: 'María García',
+    role: 'CEO, TechStart',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Maria',
+    content: 'NovaTech transformó completamente nuestra presencia digital. El chatbot de IA que desarrollaron redujo nuestro tiempo de atención al cliente en un 60%. Increíble trabajo.',
+    rating: 5
+  },
+  {
+    name: 'Carlos Rodríguez',
+    role: 'Director de Innovación, FinGroup',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Carlos',
+    content: 'La plataforma de análisis predictivo que crearon superó todas nuestras expectativas. Su equipo técnico es excepcional y siempre están disponibles para soporte.',
+    rating: 5
+  },
+  {
+    name: 'Laura Martínez',
+    role: 'Fundadora, EcoShop',
+    avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Laura',
+    content: 'Nuestro e-commerce con recomendaciones IA aumentó las ventas un 40%. El equipo de NovaTech entendió perfectamente nuestra visión y la ejecutó a la perfección.',
+    rating: 5
+  }
+];
+---
+
+<section class="section testimonials">
+  <div class="container">
+    <SectionTitle
+      title="Lo que dicen nuestros clientes"
+      subtitle="Testimonios reales de empresas que confiaron en nosotros"
+    />
+
+    <div class="testimonials-grid">
+      {testimonials.map((testimonial, index) => (
+        <div class="testimonial-card reveal" style={`transition-delay: ${index * 0.1}s`}>
+          <div class="stars">
+            {Array.from({ length: testimonial.rating }).map(() => (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            ))}
+          </div>
+          <p class="testimonial-content">"{testimonial.content}"</p>
+          <div class="testimonial-author">
+            <img src={testimonial.avatar} alt={testimonial.name} width="48" height="48" />
+            <div>
+              <span class="author-name">{testimonial.name}</span>
+              <span class="author-role">{testimonial.role}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .testimonial-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .stars {
+    display: flex;
+    gap: 4px;
+    color: #fbbf24;
+    margin-bottom: 20px;
+  }
+
+  .testimonial-content {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .testimonial-author img {
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+  }
+
+  .author-name {
+    display: block;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+  }
+
+  .author-role {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 1024px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

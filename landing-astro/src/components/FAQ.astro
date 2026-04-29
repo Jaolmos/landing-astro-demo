@@ -1,0 +1,158 @@
+---
+import SectionTitle from './ui/SectionTitle.astro';
+
+const faqs = [
+  {
+    question: '¿Cuánto tiempo toma desarrollar un proyecto web?',
+    answer: 'El tiempo varía según la complejidad. Una landing page puede tomar 1-2 semanas, mientras que una aplicación web completa puede tomar 2-4 meses. Siempre proporcionamos un cronograma detallado antes de comenzar.'
+  },
+  {
+    question: '¿Qué tecnologías utilizan para el desarrollo?',
+    answer: 'Utilizamos tecnologías modernas como React, Next.js, Astro, Node.js, Python, y frameworks de IA como TensorFlow y PyTorch. Elegimos la mejor stack según las necesidades de cada proyecto.'
+  },
+  {
+    question: '¿Ofrecen soporte post-lanzamiento?',
+    answer: 'Sí, ofrecemos planes de soporte y mantenimiento que incluyen actualizaciones, corrección de bugs, monitoreo de rendimiento y soporte técnico prioritario.'
+  },
+  {
+    question: '¿Cómo funciona el proceso de desarrollo con IA?',
+    answer: 'Comenzamos analizando tus necesidades, luego diseñamos un modelo de IA personalizado, lo entrenamos con tus datos, lo integramos en tu sistema y proporcionamos monitoreo continuo para optimizar su rendimiento.'
+  },
+  {
+    question: '¿Cuál es el costo de un proyecto?',
+    answer: 'Cada proyecto es único. Los precios dependen del alcance, complejidad y tecnologías requeridas. Ofrecemos presupuestos personalizados gratuitos después de una consulta inicial.'
+  },
+  {
+    question: '¿Trabajan con empresas de cualquier tamaño?',
+    answer: 'Absolutamente. Trabajamos con startups, pymes y grandes empresas. Nuestras soluciones se adaptan al tamaño y presupuesto de cada cliente.'
+  },
+  {
+    question: '¿Qué metodología de trabajo utilizan?',
+    answer: 'Utilizamos metodologías ágiles (Scrum/Kanban) con sprints de 2 semanas. Esto nos permite entregar valor incrementalmente y adaptarnos rápidamente a los cambios.'
+  },
+  {
+    question: '¿Pueden integrar IA en mi sistema existente?',
+    answer: 'Sí, podemos integrar soluciones de IA en sistemas existentes mediante APIs y microservicios. Realizamos una auditoría técnica para determinar la mejor estrategia de integración.'
+  }
+];
+---
+
+<section class="section faq" id="faq">
+  <div class="container">
+    <SectionTitle
+      title="Preguntas Frecuentes"
+      subtitle="Respuestas a las consultas más comunes sobre nuestros servicios"
+    />
+
+    <div class="faq-list">
+      {faqs.map((faq, index) => (
+        <div class="faq-item reveal" style={`transition-delay: ${index * 0.05}s`}>
+          <button class="faq-question" aria-expanded="false">
+            <span>{faq.question}</span>
+            <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <p>{faq.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-item {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transition);
+  }
+
+  .faq-item:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+  }
+
+  .faq-item.active {
+    border-color: var(--color-primary);
+  }
+
+  .faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: var(--transition);
+  }
+
+  .faq-question:hover {
+    color: var(--color-primary-hover);
+  }
+
+  .faq-icon {
+    flex-shrink: 0;
+    transition: var(--transition);
+    color: var(--text-muted);
+  }
+
+  .faq-item.active .faq-icon {
+    transform: rotate(180deg);
+    color: var(--color-primary);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .faq-answer p {
+    padding: 0 24px 20px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .faq-item.active .faq-answer {
+    max-height: 300px;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.parentElement;
+      const isActive = item.classList.contains('active');
+
+      document.querySelectorAll('.faq-item').forEach(el => {
+        el.classList.remove('active');
+        el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isActive) {
+        item.classList.add('active');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

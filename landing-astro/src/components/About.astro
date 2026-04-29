@@ -1,0 +1,196 @@
+---
+import SectionTitle from './ui/SectionTitle.astro';
+
+const stats = [
+  { number: '50+', label: 'Proyectos Completados' },
+  { number: '30+', label: 'Clientes Satisfechos' },
+  { number: '15+', label: 'Expertos en el Equipo' },
+  { number: '99%', label: 'Tasa de Satisfacción' }
+];
+
+const values = [
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`,
+    title: 'Innovación',
+    description: 'Utilizamos las últimas tecnologías y metodologías para crear soluciones de vanguardia.'
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+    title: 'Calidad',
+    description: 'Cada línea de código es revisada y probada para garantizar la máxima calidad.'
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    title: 'Compromiso',
+    description: 'Tu éxito es nuestro éxito. Nos comprometemos con cada proyecto como si fuera nuestro.'
+  }
+];
+---
+
+<section class="section about" id="nosotros">
+  <div class="container">
+    <SectionTitle
+      title="Sobre Nosotros"
+      subtitle="Somos un equipo apasionado por la tecnología y la innovación digital"
+    />
+
+    <div class="about-grid">
+      <div class="about-content reveal">
+        <h3>Impulsando el futuro digital</h3>
+        <p>
+          En NovaTech Studio, combinamos creatividad y tecnología para crear soluciones
+          digitales que transforman negocios. Con más de 5 años de experiencia, nuestro
+          equipo de expertos está dedicado a entregar resultados excepcionales.
+        </p>
+        <p>
+          Nos especializamos en desarrollo web moderno y soluciones de inteligencia
+          artificial que automatizan procesos, mejoran la experiencia del usuario
+          y generan valor real para nuestros clientes.
+        </p>
+      </div>
+
+      <div class="about-stats reveal" style="transition-delay: 0.2s">
+        {stats.map(stat => (
+          <div class="stat-item">
+            <span class="stat-number">{stat.number}</span>
+            <span class="stat-label">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="values-grid">
+      {values.map((value, index) => (
+        <div class="value-card reveal" style={`transition-delay: ${index * 0.1}s`}>
+          <div class="value-icon" set:html={value.icon} />
+          <h4>{value.title}</h4>
+          <p>{value.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+
+  .about-content h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+  }
+
+  .about-content p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .stat-item {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+    transition: var(--transition);
+  }
+
+  .stat-item:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .value-card {
+    text-align: center;
+    padding: 32px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    transition: var(--transition);
+  }
+
+  .value-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(99, 102, 241, 0.3);
+  }
+
+  .value-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 50%;
+    color: var(--color-primary-hover);
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+
+  .value-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1024px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .values-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

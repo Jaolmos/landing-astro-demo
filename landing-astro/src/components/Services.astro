@@ -1,0 +1,130 @@
+---
+import SectionTitle from './ui/SectionTitle.astro';
+import Card from './ui/Card.astro';
+
+const services = [
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
+    title: 'Desarrollo Web',
+    description: 'Sitios web modernos, responsivos y optimizados para SEO. Desde landing pages hasta aplicaciones web complejas.',
+    tags: ['React', 'Astro', 'Next.js']
+  },
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg>`,
+    title: 'Apps Móviles',
+    description: 'Aplicaciones nativas y multiplataforma con interfaces intuitivas y rendimiento excepcional.',
+    tags: ['React Native', 'Flutter']
+  },
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 0 1 4 4v1a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M16 14h.01M8 14h.01M12 22c-4.42 0-8-1.79-8-4v-2c0-2.21 3.58-4 8-4s8 1.79 8 4v2c0 2.21-3.58 4-8 4z"/></svg>`,
+    title: 'Inteligencia Artificial',
+    description: 'Modelos de ML personalizados, procesamiento de lenguaje natural y visión por computadora para tu negocio.',
+    tags: ['Python', 'TensorFlow', 'OpenAI']
+  },
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+    title: 'Chatbots IA',
+    description: 'Asistentes virtuales inteligentes que mejoran la atención al cliente y automatizan consultas frecuentes.',
+    tags: ['GPT', 'NLP', 'RASA']
+  },
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>`,
+    title: 'Automatización',
+    description: 'Flujos de trabajo automatizados que eliminan tareas repetitivas y aumentan la productividad de tu equipo.',
+    tags: ['Zapier', 'n8n', 'APIs']
+  },
+  {
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>`,
+    title: 'Consultoría Tech',
+    description: 'Estrategia tecnológica personalizada para digitalizar tu negocio y escalar tus operaciones eficientemente.',
+    tags: ['Arquitectura', 'DevOps', 'Cloud']
+  }
+];
+---
+
+<section class="section services" id="servicios">
+  <div class="container">
+    <SectionTitle
+      title="Nuestros Servicios"
+      subtitle="Soluciones tecnológicas integrales para llevar tu negocio al siguiente nivel"
+    />
+    <div class="services-grid">
+      {services.map((service, index) => (
+        <div class="reveal" style={`transition-delay: ${index * 0.1}s`}>
+          <Card>
+            <div class="service-icon" set:html={service.icon} />
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+            <div class="service-tags">
+              {service.tags.map(tag => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          </Card>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .service-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: var(--radius);
+    color: var(--color-primary-hover);
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+  }
+
+  p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    padding: 4px 12px;
+    background: rgba(34, 211, 238, 0.08);
+    border: 1px solid rgba(34, 211, 238, 0.15);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  @media (max-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
