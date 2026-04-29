@@ -28,12 +28,22 @@ npm run preview      # Vista previa del build de producción
 landing-astro/
 ├── src/
 │   ├── pages/index.astro        # Página principal (única)
-│   ├── layouts/Layout.astro     # Layout raíz (incluye JS de scroll reveal)
+│   ├── layouts/Layout.astro     # Layout raíz (meta tags SEO, structured data, JS scroll reveal)
 │   ├── components/              # Componentes de sección (Header, Hero, Services, etc.)
 │   ├── components/ui/           # UI reutilizable (Button, Card, SectionTitle)
 │   └── styles/global.css        # Estilos globales
-└── public/                      # Assets estáticos (favicon)
+└── public/
+    ├── favicon.svg              # Favicon
+    ├── robots.txt               # Directivas para crawlers
+    └── sitemap.xml              # Sitemap XML
 ```
+
+## SEO
+
+- **Meta tags**: robots, author, canonical URL, Open Graph, Twitter Cards (en `Layout.astro`)
+- **Structured data (JSON-LD)**: Organization, WebSite (en `Layout.astro`), FAQPage (en `FAQ.astro`)
+- **Archivos técnicos**: `robots.txt` y `sitemap.xml` en `public/`
+- **URL canónica**: `https://novatechstudio.com`
 
 ## Patrones
 
