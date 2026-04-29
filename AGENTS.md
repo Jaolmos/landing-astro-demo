@@ -2,7 +2,7 @@
 
 ## Resumen del Proyecto
 
-Landing page de una sola página con Astro para "NovaTech Studio" (contenido en español). Todo el código fuente está en el subdirectorio `landing-astro/`.
+Landing page de demostración con Astro para "NovaTech Studio" (contenido en español).
 
 ## Datos Clave
 
@@ -12,8 +12,6 @@ Landing page de una sola página con Astro para "NovaTech Studio" (contenido en 
 - **Idioma**: Todo el contenido visible está en español (`lang="es"`)
 
 ## Comandos
-
-Ejecutar desde el directorio `landing-astro/`:
 
 ```bash
 npm install          # Instalar dependencias
@@ -25,17 +23,18 @@ npm run preview      # Vista previa del build de producción
 ## Arquitectura
 
 ```
-landing-astro/
+/
 ├── src/
 │   ├── pages/index.astro        # Página principal (única)
 │   ├── layouts/Layout.astro     # Layout raíz (meta tags SEO, structured data, JS scroll reveal)
 │   ├── components/              # Componentes de sección (Header, Hero, Services, etc.)
 │   ├── components/ui/           # UI reutilizable (Button, Card, SectionTitle)
 │   └── styles/global.css        # Estilos globales
-└── public/
-    ├── favicon.svg              # Favicon
-    ├── robots.txt               # Directivas para crawlers
-    └── sitemap.xml              # Sitemap XML
+├── public/
+│   ├── favicon.svg              # Favicon
+│   ├── robots.txt               # Directivas para crawlers
+│   └── sitemap.xml              # Sitemap XML
+└── .agents/                     # Skills de opencode
 ```
 
 ## SEO
