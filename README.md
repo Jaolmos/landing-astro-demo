@@ -24,7 +24,9 @@ Landing page de demostración construida con Astro, HTML y CSS. Incluye SEO opti
 │   ├── layouts/             # Layout raíz (meta tags SEO, structured data)
 │   ├── pages/               # Páginas (index.astro)
 │   └── styles/              # Estilos globales
-└── package.json
+├── .agents/                 # Skills de opencode
+├── package.json
+└── tsconfig.json
 ```
 
 ## Secciones de la Landing
@@ -32,8 +34,6 @@ Landing page de demostración construida con Astro, HTML y CSS. Incluye SEO opti
 Hero | Servicios | Nosotros | Portafolio | Testimonios | FAQ | Contacto
 
 ## Comandos
-
-Todos los comandos se ejecutan desde la raíz del proyecto (`landing-astro/`):
 
 | Comando                   | Acción                                           |
 | :------------------------ | :----------------------------------------------- |
