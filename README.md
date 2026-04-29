@@ -6,15 +6,22 @@ Landing page construida con Astro para NovaTech Studio.
 
 ```text
 /
-├── public/                  # Assets estáticos (favicon)
+├── public/
+│   ├── favicon.svg          # Favicon
+│   ├── robots.txt           # Directivas para crawlers
+│   └── sitemap.xml          # Sitemap XML
 ├── src/
-│   ├── components/          # Componentes de sección
+│   ├── components/          # Componentes de sección (Header, Hero, Services, etc.)
 │   ├── components/ui/       # UI reutilizable (Button, Card, SectionTitle)
-│   ├── layouts/             # Layout raíz
+│   ├── layouts/             # Layout raíz (meta tags SEO, structured data)
 │   ├── pages/               # Páginas (index.astro)
 │   └── styles/              # Estilos globales
 └── package.json
 ```
+
+## Secciones de la Landing
+
+Hero | Servicios | Nosotros | Portafolio | Testimonios | FAQ | Contacto
 
 ## Comandos
 
