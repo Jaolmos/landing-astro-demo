@@ -1,6 +1,6 @@
 # NovaTech Studio - Landing Page
 
-Landing page de demostración construida con Astro.
+Landing page de demostración construida con Astro, HTML y CSS. Incluye SEO optimizado, structured data y componentes modulares.
 
 ## Características
 
